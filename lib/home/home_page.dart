@@ -7,12 +7,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber[800],
         title: const Text("Nossa primeira AppBar"),
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add_a_photo_outlined),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add_photo_alternate_outlined),
+          ),
+        ],
       ),
-      body: const Center(
-        child: Text('Nossa Home Page'),
-      ),
+      drawer: const Drawer(child: Center(child: Text('Drawer aberto'))),
+      endDrawer: const Drawer(child: Center(child: Text('End Drawer'))),
+      body: const Center(child: Text('Nossa Home Page')),
     );
   }
 }
