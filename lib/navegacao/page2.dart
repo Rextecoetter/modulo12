@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_maonamassa/navegacao/page3.dart';
 
 class Page2 extends StatelessWidget {
+  static final String routeName = '/page2';
   const Page2({Key? key}) : super(key: key);
 
   @override
@@ -27,7 +28,11 @@ class Page2 extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: Text('pop')),
-            ElevatedButton(onPressed: () {}, child: Text('Page 3 Via Named')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/page3');
+                },
+                child: Text('Page 3 Via Named')),
           ],
         ),
       ),

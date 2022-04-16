@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_maonamassa/navegacao/page1.dart';
+import 'package:flutter_maonamassa/navegacao/page2.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({Key? key}) : super(key: key);
@@ -16,12 +17,18 @@ class Page4 extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
+                  // Navigator.of(context).pushAndRemoveUntil(
+                  //     MaterialPageRoute(
+                  //       settings: const RouteSettings(name: 'page1'),
+                  //       builder: (context) => const Page1(),
+                  //     ),
+                  //     ModalRoute.withName('page2'));
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                         settings: const RouteSettings(name: 'page1'),
                         builder: (context) => const Page1(),
                       ),
-                      ModalRoute.withName('Page2'));
+                      (route) => route.isFirst);
                 },
                 child: const Text('Page 1 Via Page')),
             ElevatedButton(
@@ -30,7 +37,11 @@ class Page4 extends StatelessWidget {
                 },
                 child: const Text('pop')),
             ElevatedButton(
-                onPressed: () {}, child: const Text('Page 1 Via Named')),
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/page1', ModalRoute.withName(Page2.routeName));
+                },
+                child: const Text('Page 1 Via Named')),
           ],
         ),
       ),

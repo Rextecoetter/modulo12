@@ -22,7 +22,11 @@ class HomePage extends StatelessWidget {
                   ));
                 },
                 child: Text('Page 2 Via Page')),
-            ElevatedButton(onPressed: () {}, child: Text('Page 2 Via Named')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Page2.routeName);
+                },
+                child: Text('Page 2 Via Named')),
           ],
         ),
       ),
